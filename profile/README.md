@@ -10,7 +10,7 @@ ElakkAI is a production-grade, zero-dependency AI framework built to eliminate d
 
 ## 🚀 Why ElakkAI?
 
-| Feature | Traditional Stacks (LangChain, etc.) | **ElakkAI** |
+| Feature | Traditional Stacks | **ElakkAI** |
 | :--- | :--- | :--- |
 | **Dependencies** | 100+ transitive packages | **0** (Pure Bun runtime APIs) |
 | **Install Size** | ~150 MB+ | **~2 MB** |
