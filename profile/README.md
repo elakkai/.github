@@ -2,40 +2,31 @@
 
 > A singular, zero-dependency AI SDK built entirely on Bun's native runtime APIs. Hyper-optimized, type-safe, and modular.
 
-[![Bun](https://img.shields.io/badge/Bun-1.4.3+-black.svg)](https://bun.sh)
-[![TypeScript](https://img.shields.io/badge/TypeScript-7.0+-blue.svg)](https://www.typescriptlang.org)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+## About Us
 
-ElakkAI is a production-grade, zero-dependency AI framework built to eliminate dependency overhead and maximize performance using Bun's native runtime APIs. By leveraging Bun's native, C++/Rust capabilities, ElakkAI delivers unmatched execution speed, microscopic bundle sizes, and absolute immunity to supply-chain vulnerabilities.
+ElakkAI is an open-source initiative focused on reimagining AI application development. We believe that building intelligent agents and complex RAG pipelines shouldn't require managing massive dependency trees or dealing with fragile native bindings.
 
-## 🚀 Why ElakkAI?
+Our mission is to provide a **zero-dependency, Bun-native framework** built to eliminate dependency overhead and maximize performance. By leveraging Bun's C++/Rust runtime APIs, ElakkAI delivers unmatched execution speed, microscopic bundle sizes, and absolute immunity to supply-chain vulnerabilities.
 
-| Feature | Traditional Stacks | **ElakkAI** |
-| :--- | :--- | :--- |
-| **Dependencies** | 100+ transitive packages | **0** (Pure Bun runtime APIs) |
-| **Install Size** | ~150 MB+ | **~2 MB** |
-| **Cold Start** | 800ms – 2000ms+ | **< 50ms** (Bytecode compiled) |
-| **Streaming** | Complex async generators | Native `TransformStream` + `sse()` |
-| **Vector Stores** | External npm wrappers | Native `bun:sqlite`, `Bun.sql`, Qdrant REST |
-| **Document Loaders**| Heavy parsers (`pdf-parse`, `js-yaml`) | Native `Bun.TOML`, `Bun.YAML`, `Bun.XML`, `Bun.markdown` |
-| **Multimodal** | Requires `sharp` or `jimp` | Native `Bun.Image` (resize, compress) |
-| **Web Scraping** | Requires `puppeteer` / `playwright` | Native `Bun.WebView` (zero-install headless) |
+## 🚀 Key Features
 
-## 📦 Core Packages
+- **Zero Dependencies:** Pure Bun runtime APIs. No `node_modules` bloat, no supply-chain risks.
+- **Hyper-Optimized:** Native `TransformStream` SSE parsing, zero-copy concurrency, and bytecode-compiled binaries.
+- **Type-Safe by Default:** Flawless TypeScript inference with a custom, zero-dependency JSON Schema validator.
+- **40+ Native Tools:** Pre-built tools for Filesystem, HTTP, Docker, S3, Redis, PostgreSQL, WebView, and more.
+- **Single Binary Deployment:** Compile your entire AI agent into a standalone executable with sub-50ms cold starts.
 
-ElakkAI is structured as a highly modular monorepo:
+##  Supported LLM Providers
 
-- **`@elakkai/core`**: Foundational types, zero-dependency JSON Schema validation (`t` builder), retry logic, and SSE parsing.
-- **`@elakkai/openai` / `@elakkai/ollama`**: Native LLM providers with `Bun.FetchSession` connection pooling and resilient streaming.
-- **`@elakkai/agents`**: Multi-step agent execution (`streamText`, `generateText`, `generateObject`, `classify`).
-- **`@elakkai/tools`**: 40+ pre-built, runtime-native tools (Filesystem, HTTP, Docker, S3, Redis, PostgreSQL, SQLite, Web Scraping).
-- **`@elakkai/vectorstore`**: Zero-dependency vector databases (SQLite, Qdrant, PostgreSQL + `pgvector`).
-- **`@elakkai/documents`**: Native document loaders for TOML, YAML, XML, JSON5, JSONL, Markdown, and CSV.
-- **`@elakkai/skills`**: Dynamic tool routing and "Tool RAG" to prevent context window overflow.
-- **`@elakkai/server`**: Production-ready HTTP layer with built-in validation, CSRF protection, and streaming support.
+ElakkAI provides dedicated, native clients for the industry's leading models, all sharing a unified `Provider` interface:
 
-## ⚡ Quick Start
+- **OpenAI** (`@elakkai/openai`) - For high-speed, cost-effective generation and embeddings.
+- **Anthropic** (`@elakkai/anthropic`) - For complex, multi-step agent reasoning and long-context tasks (Claude).
+- **Google Gemini** (`@elakkai/gemini`) - For native multimodal excellence and fast tool calling.
+- **Ollama** (`@elakkai/ollama`) - For fully local, private inference using native NDJSON streaming.
 
-### 1. Install Dependencies
-```bash
-bun install
+*Additionally, any OpenAI-compatible provider (Groq, xAI, Mistral, DeepSeek, vLLM) works instantly out of the box by simply overriding the base URL.*
+
+## 📦 Our Projects
+
+- **[elakkai](https://github.com/elakkai/elakkai)** — The core monorepo containing the complete AI SDK, including LLM providers, vector stores, document loaders, dynamic skill routing, and production-ready HTTP servers.
